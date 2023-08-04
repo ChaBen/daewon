@@ -1,112 +1,207 @@
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from '@/components/ui/card'
+import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
+
+type Content = {
+  src: string
+  genre: string
+  title: string
+}
+
+const contents: Content[] = [
+  {
+    src: 'KeyVisual-459x258.png',
+    genre: 'Action',
+    title: 'Glaciered',
+  },
+  {
+    src: 'thumbnail_800-459x258.png',
+    genre: 'Strategy',
+    title: 'Phantom Rose 2 Sapphire',
+  },
+  {
+    src: 'momodora_header-450x258.jpg',
+    genre: 'Action',
+    title: 'Momodora: Moonlit Farewell',
+  },
+  {
+    src: 'homurahime_header-450x258.jpg',
+    genre: 'Action',
+    title: 'Homura Hime',
+  },
+  {
+    src: 'Magus-450x258.jpg',
+    genre: 'Action',
+    title: 'MaguSphere - Magical Cannon Girls',
+  },
+  {
+    src: 'Life_en-450x258.jpg',
+    genre: 'RPG',
+    title: 'The Use of Life',
+  },
+  {
+    src: 'main_visual_EN-459x258.jpg',
+    genre: 'Visual Novel',
+    title: 'From Madness with Love',
+  },
+  {
+    src: 'RustedMossKeyPress-1-459x258.png',
+    genre: 'Platformer',
+    title: 'Rusted Moss',
+  },
+  {
+    src: 'Marfusha_EN-1-459x258.jpg',
+    genre: 'Action',
+    title: 'Marfusha',
+  },
+  {
+    src: 'SubwayMidnight_Press-230302_image_00EN-459x258.jpg',
+    genre: 'Adventure',
+    title: 'SUBWAY MIDNIGHT',
+  },
+  {
+    src: 'TheGoodLife-450x258.jpg',
+    genre: 'Adventure',
+    title: 'The Good Life',
+  },
+  {
+    src: 'mainvisual-450x258.jpg',
+    genre: 'Horror',
+    title: 'Ib',
+  },
+  {
+    src: 'Drainus_keyart_1920x1080-459x258.png',
+    genre: 'Action',
+    title: 'DRAINUS',
+  },
+  {
+    src: '7days_Herobanner_1920x1080-459x258.jpg',
+    genre: 'Puzzle',
+    title: '7 Days to End with You',
+  },
+  {
+    src: 'DragoNoka_TrailerThumnail_1280x720_en-459x258.jpg',
+    genre: 'Simulation',
+    title: 'Drago Noka',
+  },
+  {
+    src: 'valkyrie_800x450_EN-1-459x258.png',
+    genre: 'Action',
+    title: 'Valkyrie of Phantasm',
+  },
+]
+
+const news = [
+  {
+    src: 'チルノ追加_01_EN-459x258.png',
+    date: '2023.08.01',
+    desc: 'Cirno Joins the Fight in the High-Speed Touhou Danmaku Versus Fighter Valkyrie of Phantasm!',
+  },
+  {
+    src: 'TLN_banner_1760x990-459x258.png',
+    date: '2023.10.21',
+    desc: 'Touhou Luna Nights - PLAYISM will Take Over Publishing from July 1 for More Streamlined Customer Support',
+  },
+  {
+    src: 'KeyArt_logo-459x258.png',
+    date: '2022.02.01',
+    desc: 'The Physics-Based Grapplevania Rusted Moss Joins the Steam Summer Sale for the Very First Time',
+  },
+]
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <main className="container">
+      <div className="flex items-center">
+        <h3 className="text-3xl">News</h3>
+        <Button className="ml-auto">
+          더보기 <MoveRight size="12" className="ml-2" />
+        </Button>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="mt-4 grid grid-cols-3 gap-3 rounded-lg">
+        {news.map((item) => (
+          <div className="grid cursor-pointer grid-cols-8 gap-4 overflow-hidden rounded-md bg-white p-3">
+            <div className="col-span-3">
+              <img
+                src={item.src}
+                alt=""
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="col-span-5">
+              <div className="text-gray-400">{item.date}</div>
+              <div className="line-clamp-3">{item.desc}</div>
+            </div>
+          </div>
+        ))}
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <h1 className="mt-24 text-3xl">NEW & HOT</h1>
+      <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-4">
+        {/* <div className="bg-white rounded-sm p-4">
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Platform</AccordionTrigger>
+              <AccordionContent>
+                <div className="flex items-center space-x-2 mt-2">
+                  <Checkbox id="terms" />
+                  <label
+                    htmlFor="terms"
+                    className="text-sm hover:text-[#ED1C24] font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    PC
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2 mt-2">
+                  <Checkbox id="terms" />
+                  <label
+                    htmlFor="terms"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Nintendo Switch
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2 mt-2">
+                  <Checkbox id="terms" />
+                  <label
+                    htmlFor="terms"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    PlayStation 5
+                  </label>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div> */}
+        {contents.map((item) => (
+          <Card key={item.title} className="relative">
+            <Badge className="absolute right-2 top-2 z-10">{item.genre}</Badge>
+            <CardContent>
+              <Image
+                src={`/${item.src}`}
+                alt={item.title}
+                className="cursor-pointer object-cover transition-all duration-300 hover:scale-110 dark:invert"
+                width={459}
+                height={258}
+                priority
+              />
+            </CardContent>
+            <CardDescription>
+              <CardTitle className="transition-colors duration-300 hover:text-red-400">
+                {item.title}
+              </CardTitle>
+            </CardDescription>
+          </Card>
+        ))}
       </div>
     </main>
   )

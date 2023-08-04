@@ -1,8 +1,12 @@
-import './globals.css'
+import '@/assets/css/global.css'
+import Language from '@/components/ui/language'
+import Slick from '@/components/ui/Slick'
+import HeaderBg from '@/components/ui/headerBg'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Link from 'next/link'
+import { Input } from '@/components/ui/input'
+import Footer from '@/components/ui/footer'
+import { Search } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +20,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="relative">
+        <header className="bg-white">
+          <div className="container flex h-[70px] items-center">
+            <nav className="nav">
+              <Link href="/">Home</Link>
+              <Link href="/">Game</Link>
+              <Link href="/">News</Link>
+              <Link href="/">Store</Link>
+              <Link href="/">About</Link>
+              <Link href="/">Contact</Link>
+            </nav>
+            <a href="#" className="mx-auto">
+              <img src="/logo.png" alt="" className="w-[110px]" />
+            </a>
+            <div className="relative flex items-center">
+              <Input className="ml-auto mr-2 w-64" placeholder="Search" />
+              <Search size="16" className="absolute right-6 text-gray-500" />
+            </div>
+            <Language />
+          </div>
+        </header>
+        {/* <HeaderBg /> */}
+        <Slick />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

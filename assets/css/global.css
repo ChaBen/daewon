@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-secondary;
+  }
+}
+
+@layer components {
+  .nav {
+    @apply relative ml-12 flex items-center;
+    a {
+      @apply hidden rounded-lg p-1 text-base font-normal transition-all hover:text-red-500 sm:px-4 md:inline-block;
+      &.active {
+        @apply bg-gray-200 dark:bg-red-500;
+      }
+    }
+  }
+}
+
+.slick-slide {
+  float: left;
+}
+.slick-inner-item {
+  width: 800px;
+  transform: scale(0.9);
+  opacity: 0.8;
+  padding: 1rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+.slick-center {
+  .slick-inner-item {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+.slick-arrow {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 9999px;
+  z-index: 10;
+  background-color: rgb(3, 7, 18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::before {
+    display: none;
+  }
+}
+.slick-arrow.slick-prev {
+  left: calc(50% - 445px);
+}
+.slick-arrow.slick-next {
+  right: calc(50% - 445px);
+}
+.slick-dots > li {
+  width: auto;
+  height: auto;
+  & > button {
+    width: 60px;
+    height: 5px;
+    padding: 0;
+    background-color: rgba(156, 163, 175);
+    &::before {
+      display: none;
+    }
+  }
+  &.slick-active > button {
+    background-color: rgba(3, 7, 18);
+  }
+}
